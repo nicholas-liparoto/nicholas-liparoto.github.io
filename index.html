@@ -36,10 +36,20 @@
         }
 
         .links a {
-            margin: 0 40px; /* increased spacing */
-            text-decoration: none;
-            color: #ffffff;
+            display: inline-block;
+            background-color: #C99700;  /* Notre Dame gold */
+            color: white;
             font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 20px;
+            border: none;
+            border-radius: 0;  /* square corners */
+            transition: background-color 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #b8860b; /* darker gold on hover */
         }
     </style>
 </head>
