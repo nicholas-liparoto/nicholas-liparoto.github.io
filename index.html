@@ -115,6 +115,34 @@
             color: #002147;
         }
 
+        /* INTERESTS SECTION */
+        .interests-section {
+            background-color: #ffffff;
+            padding: 60px 20px;
+        }
+
+        .interests-title {
+            font-size: 2em;
+            color: #002147;
+            margin-bottom: 10px;
+        }
+
+        .interests-underline {
+            width: 100px;
+            height: 4px;
+            background-color: #C99700;
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+
+        .interests-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333333;
+        }
+
         /* SIDE NAVIGATION */
         .side-nav {
             position: fixed;
@@ -147,6 +175,7 @@
         <a href="#home" title="Home">🏠 Home</a>
         <a href="#about" title="About">👤 About</a>
         <a href="#timeline" title="Timeline">🕒 Timeline</a>
+        <a href="#interests" title="Interests">📷 Interests</a>
     </div>
 
     <!-- HOME SECTION -->
@@ -187,9 +216,23 @@
         <div class="timeline-item"><strong>Summer 2025:</strong> Donnelly Penman and Partners Investment Banking Summer Analyst</div>
     </div>
 
+    <!-- INTERESTS SECTION -->
+    <div class="interests-section" id="interests">
+        <h2 class="interests-title">INTERESTS</h2>
+        <div class="interests-underline"></div>
+        <p class="interests-text">
+            This section is for showcasing your personal interests! Add photos, videos, or highlights of things you're passionate about like guitar, fitness, tech projects, travel, or anything else.
+        </p>
+        <div style="margin-top: 30px;">
+            <p><em>Example: Insert your content here later — e.g. photos, videos, music links.</em></p>
+            <img src="placeholder.jpg" alt="Interest example" style="width:300px; max-width:90%; border-radius:10px; margin:10px 0;">
+            <!-- <video src="your-video.mp4" controls style="width:90%; max-width:600px;"></video> -->
+        </div>
+    </div>
+
     <!-- ACTIVE SECTION SCROLL SCRIPT -->
     <script>
-        const sections = document.querySelectorAll(".banner, .about-section, .timeline-section");
+        const sections = document.querySelectorAll(".banner, .about-section, .timeline-section, .interests-section");
         const navLinks = document.querySelectorAll(".side-nav a");
 
         window.addEventListener("scroll", () => {
