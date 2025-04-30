@@ -17,7 +17,7 @@
         }
 
         .banner {
-            background-color: #002147; /* navy blue banner */
+            background-color: #002147;
             color: white;
             padding: 50px 20px;
         }
@@ -36,24 +36,24 @@
         }
 
         .links {
-            margin-top: 30px; /* space between bio and links */
+            margin-top: 30px;
         }
 
         .links a {
             display: inline-block;
-            background-color: #C99700;  /* Notre Dame gold */
+            background-color: #C99700;
             color: white;
             font-weight: bold;
             text-decoration: none;
             padding: 10px 20px;
             margin: 0 20px;
             border: none;
-            border-radius: 8px;  /* round corners */
+            border-radius: 8px;
             transition: background-color 0.3s ease;
         }
 
         .links a:hover {
-            background-color: #b8860b; /* darker gold on hover */
+            background-color: #b8860b;
         }
 
         /* ABOUT SECTION */
@@ -84,7 +84,7 @@
             color: #333333;
         }
 
-        /* TIMELINE STYLES */
+        /* TIMELINE */
         .timeline-section {
             background-color: white;
             padding: 60px 20px;
@@ -115,62 +115,47 @@
             color: #002147;
         }
 
+        /* SIDE NAVIGATION */
         .side-nav {
             position: fixed;
             top: 50%;
-            left: 0;
+            left: 10px;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            background-color: #002147;
-            padding: 10px 0;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
             z-index: 1000;
         }
 
         .side-nav a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 16px;
-            font-weight: bold;
-            font-size: 0.95em;
-            transition: background-color 0.3s;
-        }
-
-        .side-nav a:hover {
-            background-color: #C99700;
             color: #002147;
-            border-radius: 0 5px 5px 0;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 1em;
+            transition: font-size 0.3s ease;
         }
 
         .side-nav a.active {
-            background-color: #C99700;
-            color: #002147;
-            border-radius: 0 5px 5px 0;
+            font-size: 1.3em;
         }
     </style>
 </head>
 <body>
-    <div class="side-nav">
-        <a href="#home">🏠 Home</a>
-        <a href="#about">👤 About</a>
-        <a href="#timeline">🕒 Timeline</a>
-    </div>
-    
+
+    <!-- SIDE NAV -->
     <div class="side-nav">
         <a href="#home" title="Home">🏠 Home</a>
         <a href="#about" title="About">👤 About</a>
         <a href="#timeline" title="Timeline">🕒 Timeline</a>
     </div>
 
+    <!-- HOME SECTION -->
     <div class="banner" id="home">
         <h1>NICHOLAS (NICO) LIPAROTO</h1>
         <img src="profile.jpg" alt="Nicholas Liparoto">
         <p class="bio">
             Hey! I'm Nico, welcome to my website.
         </p>
-
         <div class="links">
             <a href="mailto:nliparoto@nd.edu">Email</a>
             <a href="https://www.linkedin.com/in/nico-liparoto">LinkedIn</a>
@@ -178,21 +163,22 @@
         </div>
     </div>
 
+    <!-- ABOUT SECTION -->
     <div class="about-section" id="about">
         <h2 class="about-title">ABOUT</h2>
         <div class="about-underline"></div>
         <p class="about-text">
-            My name is Nico Liparoto. I'm from Rochester, Michigan, and I studying Computer Engineering at the University of Notre Dame.
+            My name is Nico Liparoto. I'm from Rochester, Michigan, and I’m studying Computer Engineering at the University of Notre Dame.
             I'm interested in leveraging my technical degree for a career in Investment Banking. Throughout my time at school, I aim to 
             gain as much knowledge about the world of finance through clubs, organizations, and internships, while pursuing my interests
             in technology and software development. Outside of school, I love to play guitar, workout, and hang out with friends. 
         </p>
     </div>
 
+    <!-- TIMELINE SECTION -->
     <div class="timeline-section" id="timeline">
         <h2 class="timeline-title">TIMELINE</h2>
         <div class="underline"></div>
-
         <div class="timeline-item"><strong>Fall 2019 - Spring 2023:</strong> Notre Dame Preparatory School</div>
         <div class="timeline-item"><strong>Fall 2023 - Spring 2027:</strong> University of Notre Dame</div>
         <div class="timeline-item"><strong>Fall 2024:</strong> Circuit and System Design for Collaborative Machine Learning Research Assistant</div>
@@ -201,20 +187,22 @@
         <div class="timeline-item"><strong>Summer 2025:</strong> Donnelly Penman and Partners Investment Banking Summer Analyst</div>
     </div>
 
+    <!-- ACTIVE SECTION SCROLL SCRIPT -->
     <script>
-        const sections = document.querySelectorAll("section, .banner, .about-section, .timeline-section");
+        const sections = document.querySelectorAll(".banner, .about-section, .timeline-section");
         const navLinks = document.querySelectorAll(".side-nav a");
-    
+
         window.addEventListener("scroll", () => {
             let current = "";
-    
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 100) {
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
                     current = section.getAttribute("id");
                 }
             });
-    
+
             navLinks.forEach(link => {
                 link.classList.remove("active");
                 if (link.getAttribute("href") === "#" + current) {
