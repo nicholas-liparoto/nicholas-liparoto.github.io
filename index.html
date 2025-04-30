@@ -115,6 +115,34 @@
             color: #002147;
         }
 
+        /* PROJECTS SECTION */
+        .projects-section {
+            background-color: #ffffff;
+            padding: 60px 20px;
+        }
+
+        .projects-title {
+            font-size: 2em;
+            color: #002147;
+            margin-bottom: 10px;
+        }
+
+        .projects-underline {
+            width: 100px;
+            height: 4px;
+            background-color: #C99700;
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+
+        .projects-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333333;
+        }
+
         /* INTERESTS SECTION */
         .interests-section {
             background-color: #ffffff;
@@ -172,10 +200,11 @@
 
     <!-- SIDE NAV -->
     <div class="side-nav">
-        <a href="#home" title="Home">🏠 Home</a>
-        <a href="#about" title="About">👤 About</a>
-        <a href="#timeline" title="Timeline">🕒 Timeline</a>
-        <a href="#interests" title="Interests">📷 Interests</a>
+        <a href="#home" title="Home"> Home</a>
+        <a href="#about" title="About"> About</a>
+        <a href="#timeline" title="Timeline"> Timeline</a>
+        <a href="#projects" title="Projects"> Projects</a>
+        <a href="#interests" title="Interests"> Interests</a>
     </div>
 
     <!-- HOME SECTION -->
@@ -216,6 +245,20 @@
         <div class="timeline-item"><strong>Summer 2025:</strong> Donnelly Penman and Partners Investment Banking Summer Analyst</div>
     </div>
 
+    <!-- PROJECTS SECTION -->
+    <div class="projects-section" id="projects">
+        <h2 class="projects-title">PROJECTS</h2>
+        <div class="projects-underline"></div>
+        <p class="projects-text">
+            Here’s where you can feature some of your favorite or most impactful projects. These can include class work, personal software, hardware designs, or finance/IB-related projects.
+        </p>
+        <div style="margin-top: 30px;">
+            <p><em>Example: Add project cards or images/videos here.</em></p>
+            <img src="project-placeholder.jpg" alt="Project example" style="width:300px; max-width:90%; border-radius:10px; margin:10px 0;">
+            <!-- <video src="your-project-demo.mp4" controls style="width:90%; max-width:600px;"></video> -->
+        </div>
+    </div>
+
     <!-- INTERESTS SECTION -->
     <div class="interests-section" id="interests">
         <h2 class="interests-title">INTERESTS</h2>
@@ -232,7 +275,7 @@
 
     <!-- ACTIVE SECTION SCROLL SCRIPT -->
     <script>
-        const sections = document.querySelectorAll(".banner, .about-section, .timeline-section, .interests-section");
+        const sections = document.querySelectorAll(".banner, .about-section, .timeline-section, .projects-section, .interests-section");
         const navLinks = document.querySelectorAll(".side-nav a");
 
         window.addEventListener("scroll", () => {
