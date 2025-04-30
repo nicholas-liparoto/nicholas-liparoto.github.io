@@ -12,6 +12,10 @@
             background-color: #f5f5f5;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         .banner {
             background-color: #002147; /* navy blue banner */
             color: white;
@@ -110,10 +114,57 @@
         .timeline-item strong {
             color: #002147;
         }
+
+        .side-nav {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            background-color: #002147;
+            padding: 10px 0;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 1000;
+        }
+
+        .side-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+        }
+
+        .side-nav a:hover {
+            background-color: #C99700;
+            color: #002147;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .side-nav a.active {
+            background-color: #C99700;
+            color: #002147;
+            border-radius: 0 5px 5px 0;
+        }
     </style>
 </head>
 <body>
-    <div class="banner">
+    <div class="side-nav">
+        <a href="#home">🏠 Home</a>
+        <a href="#about">👤 About</a>
+        <a href="#timeline">🕒 Timeline</a>
+    </div>
+    
+    <div class="side-nav">
+        <a href="#home" title="Home">🏠 Home</a>
+        <a href="#about" title="About">👤 About</a>
+        <a href="#timeline" title="Timeline">🕒 Timeline</a>
+    </div>
+
+    <div class="banner" id="home">
         <h1>NICHOLAS (NICO) LIPAROTO</h1>
         <img src="profile.jpg" alt="Nicholas Liparoto">
         <p class="bio">
@@ -127,7 +178,7 @@
         </div>
     </div>
 
-    <div class="about-section">
+    <div class="about-section" id="about">
         <h2 class="about-title">ABOUT</h2>
         <div class="about-underline"></div>
         <p class="about-text">
@@ -138,7 +189,7 @@
         </p>
     </div>
 
-    <div class="timeline-section">
+    <div class="timeline-section" id="timeline">
         <h2 class="timeline-title">TIMELINE</h2>
         <div class="underline"></div>
 
@@ -149,5 +200,28 @@
         <div class="timeline-item"><strong>Spring 2025:</strong> Waterbrook Advisors Investment Banking Analyst Intern</div>
         <div class="timeline-item"><strong>Summer 2025:</strong> Donnelly Penman and Partners Investment Banking Summer Analyst</div>
     </div>
+
+    <script>
+        const sections = document.querySelectorAll("section, .banner, .about-section, .timeline-section");
+        const navLinks = document.querySelectorAll(".side-nav a");
+    
+        window.addEventListener("scroll", () => {
+            let current = "";
+    
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute("id");
+                }
+            });
+    
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
